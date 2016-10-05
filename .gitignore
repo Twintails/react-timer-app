@@ -1,12 +1,6 @@
 # folders and files to be ignored by git
 
 ############
-## Bones
-############
-
-Bones.esproj/
-
-############
 ## IDEs
 ############
 
@@ -59,22 +53,12 @@ temp/
 *.scssc
 *.map
 
-## Compiled by Gulp tasks
-library/css
-library/assets
-library/fonts
-library/js
+## Compiled by Webpack tasks
+public
 
 ## Source not needed in repo
 **/bower_components
 **/sourcemaps
 
-src/node_modules
-src/non-tasks
-src/components/old-js
-src/assets/images
-
-config.codekit
-
-
-gulpfile.js
+## OPK
+node_modules
