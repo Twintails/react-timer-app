@@ -54,7 +54,7 @@ temp/
 *.map
 
 ## Compiled by Webpack tasks
-public
+public/**/
 
 ## Source not needed in repo
 **/bower_components
