@@ -11,6 +11,13 @@
 #!bash
 
 npm install
+
+```
+To Run the app with a single word command you should install the following np's globally
+```
+#!bash
+
+npm install -g webpack nodemon
 nodemon
 ```
 for dist 
