@@ -13,14 +13,21 @@
 npm install
 
 ```
-To Run the app with a single word command you should install the following np's globally
+To Run the app with a single word command you should install a couple np's globally
 ```
 #!bash
 
 npm install -g webpack nodemon
+```
+Then issue the command to webpack and monitor app directory for changes.
+```
+#!bash
+
 nodemon
 ```
-for dist 
+
+
+for compiling a distribution folder which you can run from any web server.
 
 ```
 #!bash
