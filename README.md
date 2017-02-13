@@ -25,7 +25,12 @@ Then issue the command to webpack and monitor app directory for changes.
 
 nodemon
 ```
+Run a Dev environment
+```
+#!bash
 
+npm run-script development
+```
 
 for compiling a distribution folder which you can run from any web server.
 
@@ -35,6 +40,11 @@ for compiling a distribution folder which you can run from any web server.
 webpack
 ```
 upload the public folder to your server wherever that may be.
+
+
+Add Aliases to the webpack.config.js file for making more components and sub-components and api directors
+
+Currently uses foundation as the Boilerplate UI for components and prototyping. I strongly suggest desinging your own look so this app isnt all foundation-esque.
 
 
 ### Contribution guidelines ###

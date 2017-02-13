@@ -1,10 +1,21 @@
-const React = require('react'),
-      ReactDOM = require('react-dom')
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {Route, Router, IndexRoute, hashHistory, browserHistory} from 'react-router'
+import Main from 'Main'
 
 
-var firstName = 'Dave';
+// Load Foundation-sites
+import 'style!css!foundation-sites/dist/css/foundation.min.css'
+//scss
+import './assets/sass/main.scss'
 
 ReactDOM.render(
-  <h1>Boilerplate App</h1>,
+  <Router history={browserHistory}>
+    <Route path="/" component={Main}>
+      {/* <Route path="about" component={About}/>
+      <Route path="examples" component={Examples}/>
+      <IndexRoute component={Weather}/> */}
+    </Route>
+  </Router>,
   document.getElementById('app')
 );
