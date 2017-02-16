@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { IndexLink } from 'react-router'
+import { Link, IndexLink } from 'react-router'
 import NavLink from 'NavLinks'
 
 const Nav = React.createClass({
@@ -20,10 +20,14 @@ const Nav = React.createClass({
         <div className="top-bar-left">
           <ul className="menu">
             <li><span className="menu-text">App BP</span></li>
-            <li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
+            <li><NavLink to="/" activeClassName="active">Timer</NavLink></li>
+            <li><NavLink to="/" activeClassName="active">Countdown</NavLink></li>
           </ul>
         </div>
         <div className="top-bar-right">
+          <ul className="menu">
+            <li><span className="menu-text">Created By <a href="//twintails.com" target="_blank">Twintails</a></span></li>
+          </ul>
         </div>
       </div>
     )

@@ -7,7 +7,8 @@ import Main from 'Main'
 // Load Foundation-sites
 import 'style!css!foundation-sites/dist/css/foundation.min.css'
 //scss
-import './assets/sass/main.scss'
+import './assets/images/favicon.ico'
+import './assets/Sass/style.scss'
 
 ReactDOM.render(
   <Router history={browserHistory}>
