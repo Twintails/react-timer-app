@@ -25,14 +25,14 @@ Then issue the command to webpack and monitor app directory for changes.
 
 nodemon
 ```
-Run a Dev environment
+####Run a Dev environment####
 ```
 #!bash
 
-npm run-script development
+npm run-script develop
 ```
 
-for compiling a distribution folder which you can run from any web server.
+####For compiling a distribution folder which you can run from any web server.####
 
 ```
 #!bash
