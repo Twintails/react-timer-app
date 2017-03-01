@@ -1,7 +1,7 @@
 {
-  "name": "reactbp",
-  "version": "1.0.0",
-  "description": "Simple react app",
+  "name": "react-countdown-timer",
+  "version": "0.4.0",
+  "description": "React Countdown Timer app",
   "main": "server.js",
   "scripts": {
     "heroku-postbuild": "NODE_ENV=production webpack --config ./webpack.config.js --progress --colors",
@@ -9,7 +9,10 @@
     "develop": "webpack-dev-server --hot --inline --history-api-fallback",
     "test": "karma start"
   },
-  "author": "Andrew Mead",
+  "author": {
+    "name": "Lawrence Francell",
+    "email": "no1special@mac.com"
+  },
   "license": "MIT",
   "dependencies": {
     "autoprefixer": "^6.5.0",
