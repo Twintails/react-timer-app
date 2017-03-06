@@ -12,7 +12,7 @@ class Controls extends React.Component {
     }
 
     return (
-      <div id="controls" className="controls">
+      <div ref={node => this.node = node} id="controls" className="controls">
         {renderStartStopButton()}
         <button className="button alert hollow">Clear</button>
       </div>
@@ -23,6 +23,5 @@ class Controls extends React.Component {
 Controls.propTypes = {
   countdownStatus: React.PropTypes.string.isRequired
 }
-
 
 export default Controls

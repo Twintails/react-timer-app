@@ -4,11 +4,12 @@ import CountdownForm from 'CountdownForm'
 
 class Countdown extends React.Component{
     constructor(props) {
-      super(props);
+      super(props)
       this.state = {
         count: 0,
         countdownStatus: 'stopped',
-      };
+      }
+      this.handleSetCountdown = this.handleSetCountdown.bind(this)
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -42,7 +43,7 @@ class Countdown extends React.Component{
         return (
           <div>
             <Clock totalSeconds={count} />
-            <CountdownForm onSetCountdown={this.handleSetCountdown.bind(this)}/>
+            <CountdownForm onSetCountdown={this.handleSetCountdown}/>
           </div>
         )
     }

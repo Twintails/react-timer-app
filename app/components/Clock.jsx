@@ -2,10 +2,10 @@ import React, {Component} from 'react'
 
 class Clock extends React.Component {
     constructor(props) {
-      super(props);
+      super(props)
       this.state = {
         totalSeconds : 0
-      };
+      }
     }
 
     formatTimeString(unit) {
