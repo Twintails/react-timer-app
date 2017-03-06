@@ -12,6 +12,11 @@ class Countdown extends React.Component{
       }
       this.handleSetCountdown = this.handleSetCountdown.bind(this)
       this.handleStatusChange = this.handleStatusChange.bind(this)
+      // this.componentWillUnmount = this.componentWillUnmount.bind(this)
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+      // console.log('component Will Update');
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -28,6 +33,20 @@ class Countdown extends React.Component{
             break
         }
       }
+    }
+
+    componentWillMount() {
+      // console.log('component Will Moun');
+    }
+
+    componentDidMount() {
+      // console.log('component Did Mount');
+    }
+
+    componentWillUnmount() {
+      // console.log('Timer Unmounted');
+      clearInterval(this.timer)
+      this.timer = undefined
     }
 
     startTimer() {
@@ -63,6 +82,7 @@ class Countdown extends React.Component{
         }
         return (
           <div>
+            <h1 className="page-title">Countdown App</h1> 
             <Clock totalSeconds={count} />
             {renderControlArea()}
           </div>

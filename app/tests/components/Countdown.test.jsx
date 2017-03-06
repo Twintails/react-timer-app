@@ -24,6 +24,7 @@ describe('Countdown', () => {
         done()
       }, 1001)
     })
+
     it('Should countdown to zero and stop', (done) => {
       let countdown = ReactTestUtils.renderIntoDocument(<Countdown/>)
       countdown.handleSetCountdown(1)
@@ -33,5 +34,30 @@ describe('Countdown', () => {
         done()
       }, 3003)
     })
+
+    it('Should pause countdown on paused status', (done) => {
+      let countdown = ReactTestUtils.renderIntoDocument(<Countdown/>)
+      countdown.handleSetCountdown(3)
+      countdown.handleStatusChange('paused')
+
+      setTimeout(() => {
+        expect(countdown.state.count).toBe(3)
+        expect(countdown.state.countdownStatus).toBe('paused')
+        done()
+      }, 1001)
+    })
+
+    it('Should stop countdown on stopped status', (done) => {
+      let countdown = ReactTestUtils.renderIntoDocument(<Countdown/>)
+      countdown.handleSetCountdown(3)
+      countdown.handleStatusChange('stopped')
+
+      setTimeout(() => {
+        expect(countdown.state.count).toBe(0)
+        expect(countdown.state.countdownStatus).toBe('stopped')
+        done()
+      }, 1001)
+    })
+
   })
 })
