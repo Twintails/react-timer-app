@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { Link, IndexLink } from 'react-router'
 import NavLink from 'NavLinks'
 
-const Nav = React.createClass({
-  render: function (props) {
+class Nav extends React.Component {
+  render() {
     return (
       <div className="top-bar">
         <div className="top-bar-left">
           <ul className="menu">
-            <li><span className="menu-text">App BP</span></li>
+            <li><span className="menu-text">Timer App</span></li>
             <li><IndexLink to="/" >Timer</IndexLink></li>
             <li><NavLink to="/countdown" >Countdown</NavLink></li>
           </ul>
@@ -21,6 +21,5 @@ const Nav = React.createClass({
       </div>
     )
   }
-})
-
-export default Nav;
+}
+export default Nav

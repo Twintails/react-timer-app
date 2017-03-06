@@ -1,36 +1,42 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
-function formatTimeString(unit){
-  if (unit < 10){
-    return '0'+ unit
-  } else {
-    return unit
-  }
-}
+class Clock extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        totalSeconds : 0
+      };
+    }
 
-const Clock = React.createClass({
-    getDefaultProps: function () {
-      totalSeconds: 0
-    },
-    propTypes: {
-      totalSeconds: React.PropTypes.number
-    },
-    formatSeconds: function (totalSeconds) {
-      let seconds = formatTimeString(totalSeconds % 60)
-      let minutes = formatTimeString(Math.floor(totalSeconds / 60))
+    formatTimeString(unit) {
+        if (unit < 10) {
+            return '0' + unit
+        } else {
+            return unit
+        }
+    }
 
-      return minutes + ':' + seconds
-    },
-    render: function () {
-      let {totalSeconds} = this.props;
+    formatSeconds(totalSeconds) {
+        let seconds = this.formatTimeString(totalSeconds % 60)
+        let minutes = this.formatTimeString(Math.floor(totalSeconds / 60))
+
+        return minutes + ':' + seconds
+    }
+
+    render() {
+        let {totalSeconds} = this.props;
         return (
-          <div ref={node => this.node = node} className="clock">
-            <span className="clock-text">
-              {this.formatSeconds(totalSeconds)}
-            </span>
-          </div>
+            <div ref={node => this.node = node} className="clock">
+                <span className="clock-text">
+                    {this.formatSeconds(totalSeconds)}
+                </span>
+            </div>
         )
     }
-})
+}
 
-module.exports = Clock
+Clock.propTypes = {
+    totalSeconds: React.PropTypes.number
+}
+
+export default Clock

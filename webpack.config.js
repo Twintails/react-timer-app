@@ -26,18 +26,19 @@ module.exports = {
   },
   output: {
     path: __dirname + "/public",
-    filename: '/js/bundle.js'
+    filename: 'js/bundle.js'
   },
   resolve: {
     root: __dirname,
     alias: {
-      Main:           'app/components/Main.jsx',
       Nav:            'app/components/Nav.jsx',
       NavLinks:       'app/components/NavLinks.jsx',
+      Main:           'app/components/Main.jsx',
       Timer:          'app/components/Timer.jsx',
       Clock:          'app/components/Clock.jsx',
       Countdown:      'app/components/Countdown.jsx',
       CountdownForm:  'app/components/CountdownForm.jsx',
+      Controls:       'app/components/Controls.jsx'
     },
     extensions: ['','.js','.jsx']
   },
