@@ -1,16 +1,20 @@
 .clock {
   align-items: center;
   background-color: $clock-bg-color;
+  background-image: $tube-tv-gradient;
   border: 2px solid $clock-border-color;
-  border-radius: 50%;
+  border-top-right-radius: (($tube-tv/4)*3) $tube-tv;
+  border-top-left-radius: (($tube-tv/4)*3) $tube-tv;
+  border-bottom-right-radius: (($tube-tv/4)*3) $tube-tv ;
+  border-bottom-left-radius: (($tube-tv/4)*3) $tube-tv;
   display: flex;
-  height: 14rem;
-  width: 14rem;
+  height: 12rem;
+  width: 16rem;
   justify-content: center;
   margin: 4rem auto;
 }
 .clock-text {
   color: $clock-text-color;
-  font-size: 2.25rem;
+  font-size: 3.25rem;
   font-weight: 300;
 }

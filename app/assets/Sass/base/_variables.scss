@@ -1,6 +1,18 @@
 // Colors
 $grey: #333;
 
+$blue: #2099E8;
+$bluescreen: #B5D0E2;
+
+$green: #089400;
+$greenscreen: #586d65;
+$greenscreen-text: #b5ff75;
+
+//border-radius
+$circle: 50%;
+$tube-tv: 15%;
+
+$tube-tv-gradient: radial-gradient(farthest-corner at center , #586d65 40%, darken(#586d65, 10%) 100%);
 
 //nav-colors
 $nav-background: $grey;
@@ -8,6 +20,6 @@ $nav-text-color: white;
 
 
 //clock
-$clock-text-color: white;
-$clock-bg-color: #B5D0E2;
-$clock-border-color: #2099E8;
+$clock-text-color: $greenscreen-text;
+$clock-bg-color: $greenscreen;
+$clock-border-color: $green;
