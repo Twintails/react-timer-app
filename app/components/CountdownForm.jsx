@@ -15,16 +15,11 @@ class CountdownForm extends React.Component{
       }
     }
 
-    componentDidMount() {
-      console.log('Form Did Mount');
-      console.log(this.refs.form[0].setCustomValidity("You can't coundown from nothing! That's funny and silly! -Zoë"));
-    }
-
     render() {
         return (
           <div ref={node => this.node = node}>
             <form ref="form" onSubmit={this.onSubmit} className="countdown-form">
-              <input type="text" ref="seconds" placeholder="Enter time in seconds" required="required"/>
+              <input type="number" min="1" max="99999" ref="seconds" placeholder="Enter time in seconds" required="required"/>
               <button className="button expanded">Start</button>
             </form>
           </div>
