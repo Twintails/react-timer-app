@@ -2,24 +2,32 @@ const autoprefixer = require('autoprefixer');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const extractSCSS = new ExtractTextPlugin('css/style.css')
-const extractHTML = new ExtractTextPlugin('index.html')
+
+// const extractHTML = new ExtractTextPlugin({
+//   filename: 'index.html',
+//   allChunks: true
+// })
+// const extractSass = new ExtractTextPlugin({
+//     filename: "css/style.css",
+//
+//     // disable: process.env.NODE_ENV === "development"
+//     allChunks: true
+// })
 
 const webpack = require('webpack')
 
 const PORT = process.env.PORT || 3001;
 
 module.exports = {
-  context: path.join(__dirname, 'public'),
   entry: [
-    'script!jquery/dist/jquery.min.js',
-    'script!foundation-sites/dist/js/foundation.min.js',
-    __dirname + '/app/app.jsx',
-    __dirname + '/app/index.html'
+    'script-loader!jquery/dist/jquery.min.js',
+    'script-loader!foundation-sites/dist/js/foundation.min.js',
+    '/app/app.jsx',
+    '/app/index.html',
+    '/app/assets/Sass/style.scss'
   ],
   devServer: {
-    'content-base': __dirname + 'public',
-    progress: true,
+    // publicPath : __dirname + 'public',
     inline: true,
     hot: true,
     port: PORT
@@ -29,8 +37,9 @@ module.exports = {
     filename: 'js/bundle.js'
   },
   resolve: {
-    root: __dirname,
+    modules: [ __dirname, "node_modules" ],
     alias: {
+      appStyles:      'app/assets/Sass/style.scss',
       Nav:            'app/components/Nav.jsx',
       NavLinks:       'app/components/NavLinks.jsx',
       Main:           'app/components/Main.jsx',
@@ -40,21 +49,37 @@ module.exports = {
       CountdownForm:  'app/components/CountdownForm.jsx',
       Controls:       'app/components/Controls.jsx'
     },
-    extensions: ['','.js','.jsx']
+    extensions: ['.js','.jsx']
   },
   devtool: "source-map",
   module: {
-    loaders: [
-      { test: /\.jsx?$/, loader: 'babel-loader', query: { presets: ['react', 'es2015'] }, exclude: /(node_modules|bower_components)/ },
-      { test: /\.scss$/i, loaders: ['style', extractSCSS.extract(['css!postcss!sass'])] },
-      { test: __dirname + '/app/index.html', loader:  extractHTML.extract(["html?" + JSON.stringify({ attrs: ["img:src"] })])  },
-      // { test: /\.scss?$/, loaders: ['style', 'css?sourceMap', 'postcss?sourceMap', 'sass?sourceMap'] },
-      { test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/i, loaders: [ 'file?name=[name].[ext]' ] },
-      // { test: /\.css$/, loaders: [ 'file', 'extract', 'css' ] },
-      // { test: __dirname + '/app/index.html', loaders: [ "file?name=[name].[ext]", "extract", "html?" + JSON.stringify({ attrs: ["img:src", "link:href"] }) ] },
+    rules: [
+      { test: /\.jsx?$/,
+        use: ['babel-loader'],
+        query: { presets: ['react', 'es2015'] },
+        exclude: /(node_modules|bower_components)/
+      },
+      // { test: __dirname + '/app/index.html', loader:  extractHTML.extract(["html?" + JSON.stringify({ attrs: ["img:src"] })])  },
+      {
+        test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/i,
+        use: [ 'file-loader?name=[name].[ext]' ]
+      },
+      // {
+      //   test: /\.html$/,
+      //   use: extractHTML.extract({
+      //     use: ['html-loader']
+      //   }),
+      // },
+      // {
+      //   test: /\.scss$/,
+      //   use: extractSass.extract({
+      //     fallback: 'style-loader',
+      //     //resolve-url-loader may be chained before sass-loader if necessary
+      //     use: ['css-loader', 'sass-loader']
+      //   })
+      // },
     ]
   },
-  postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
   externals: {
     jquery: 'jQuery'
   },
@@ -63,25 +88,25 @@ module.exports = {
       '$':'jquery',
       'jQuery':'jquery'
     }),
-    extractHTML,
-    extractSCSS
+    // extractHTML,
+    // extractSass
   ],
-  imagemin: {
-    gifsicle: { interlaced: false },
-    jpegtran: {
-      progressive: true,
-      arithmetic: false
-    },
-    optipng: { optimizationLevel: 5 },
-    pngquant: {
-      floyd: 0.5,
-      speed: 2
-    },
-    svgo: {
-      plugins: [
-        { removeTitle: true },
-        { convertPathData: false }
-      ]
-    }
-  }
+  // imagemin: {
+  //   gifsicle: { interlaced: false },
+  //   jpegtran: {
+  //     progressive: true,
+  //     arithmetic: false
+  //   },
+  //   optipng: { optimizationLevel: 5 },
+  //   pngquant: {
+  //     floyd: 0.5,
+  //     speed: 2
+  //   },
+  //   svgo: {
+  //     plugins: [
+  //       { removeTitle: true },
+  //       { convertPathData: false }
+  //     ]
+  //   }
+  // }
 }

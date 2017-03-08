@@ -8,10 +8,10 @@ import Countdown from 'Countdown'
 
 
 // Load Foundation-sites
-import 'style!css!foundation-sites/dist/css/foundation.min.css'
+// import 'style-loader!css-loader!foundation-sites/dist/css/foundation.min.css'
 //scss
-import './assets/images/favicon.ico'
-import './assets/Sass/style.scss'
+// import './assets/images/favicon.ico'
+import 'appStyles'
 
 ReactDOM.render(
   <Router history={browserHistory}>
