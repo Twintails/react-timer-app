@@ -13,6 +13,10 @@
     "name": "Lawrence Francell",
     "email": "no1special@mac.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Twintails/react-timer-app.git"
+  },
   "license": "MIT",
   "dependencies": {
     "autoprefixer": "^6.5.0",
