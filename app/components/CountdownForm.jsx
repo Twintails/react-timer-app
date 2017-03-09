@@ -9,8 +9,11 @@ class CountdownForm extends React.Component{
     onSubmit(e) {
       e.preventDefault()
       let strSeconds = this.refs.seconds.value
+      console.log(parseInt(strSeconds, 10) > 360000);
       if (strSeconds === '') {
         return
+      } else if ( parseInt(strSeconds, 10) > 360000 ) {
+        strSeconds = '360000'
       }
       if (strSeconds.match(/^[0-9]*$/)) {
         this.refs.seconds.value = ''
@@ -32,7 +35,7 @@ class CountdownForm extends React.Component{
         return (
           <div ref={node => this.node = node}>
             <form ref="form" onSubmit={this.onSubmit} className="countdown-form">
-              <input type="number" min="1" max="99999" ref="seconds" placeholder="Enter time in 1 to 99999 seconds" required="required"/>
+              <input type="number" min="1" max="360000" ref="seconds" placeholder="Enter time in 1 to 99999 seconds" required="required"/>
               <button className="button expanded">Start</button>
             </form>
           </div>
