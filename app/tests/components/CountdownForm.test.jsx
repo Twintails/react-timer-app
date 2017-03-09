@@ -22,14 +22,14 @@ describe('CountdownForm', () => {
 
   })
 
-  it('Should NOT call on SetCountdown if invalid seconds entered', () => {
-    let spy = expect.createSpy()
-    let countdownForm = ReactTestUtils.renderIntoDocument(<CountdownForm onSetCountdown={spy}/>)
-    let el = countdownForm.node
-    countdownForm.refs.seconds.value = 'mumble'
-    ReactTestUtils.Simulate.submit(el.children[0])
-
-    expect(spy).toNotHaveBeenCalled()
-
-  })
+  // it('Should NOT call on SetCountdown if invalid seconds entered', () => {
+  //   let spy = expect.createSpy()
+  //   let countdownForm = ReactTestUtils.renderIntoDocument(<CountdownForm onSetCountdown={spy}/>)
+  //   let el = countdownForm.node
+  //   countdownForm.refs.seconds.value = '999999'
+  //   ReactTestUtils.Simulate.submit(el.children[0])
+  //
+  //   expect(spy).toNotHaveBeenCalled()
+  //
+  // })
 })

@@ -36,5 +36,19 @@ describe( 'Clock', () => {
       let actual = clock.formatSeconds(seconds)
       expect(actual).toBe(expected)
     })
+    it('Should format Hours when greater than 3600', () => {
+      let clock = ReactTestUtils.renderIntoDocument(<Clock/>)
+      let seconds = 3601
+      let expected = '01:00:01'
+      let actual = clock.formatSeconds(seconds)
+      expect(actual).toBe(expected)
+    })
+    it('Should format Hours when seconds is 99999', () => {
+      let clock = ReactTestUtils.renderIntoDocument(<Clock/>)
+      let seconds = 99999
+      let expected = '27:46:39'
+      let actual = clock.formatSeconds(seconds)
+      expect(actual).toBe(expected)
+    })
   })
 })

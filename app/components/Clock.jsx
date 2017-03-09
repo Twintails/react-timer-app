@@ -18,9 +18,13 @@ class Clock extends React.Component {
 
     formatSeconds(totalSeconds) {
         let seconds = this.formatTimeString(totalSeconds % 60)
-        let minutes = this.formatTimeString(Math.floor(totalSeconds / 60))
-
-        return minutes + ':' + seconds
+        let minutes = this.formatTimeString((Math.floor(totalSeconds / 60) % 60))
+        let hours   = this.formatTimeString(Math.floor((totalSeconds / 60) / 60))
+        if (hours !== '00') {
+          return hours + ':' + minutes + ':' + seconds
+        } else {
+          return minutes + ':' + seconds
+        }
     }
 
     render() {
