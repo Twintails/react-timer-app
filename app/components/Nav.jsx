@@ -8,14 +8,14 @@ class Nav extends React.Component {
       <div className="top-bar">
         <div className="top-bar-left">
           <ul className="menu">
-            <li><span className="menu-text">Timer App</span></li>
+            <li className="menu-text"><span>Timer App</span></li>
             <li><IndexLink to="/" >Timer</IndexLink></li>
             <li><NavLink to="/countdown" >Countdown</NavLink></li>
           </ul>
         </div>
         <div className="top-bar-right">
           <ul className="menu">
-            <li><span className="menu-text">Created By <a href="//twintails.com" target="_blank">Twintails</a></span></li>
+            <li className="menu-text"><span>Created By <a href="//twintails.com" target="_blank">Twintails</a></span></li>
           </ul>
         </div>
       </div>
