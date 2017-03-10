@@ -23,10 +23,16 @@ class CountdownForm extends React.Component{
 
     componentDidMount() {
       const formInput = this.refs.form[0]
-      formInput.validity.valueMissing ? formInput.setCustomValidity("You can't countdown from nothing! That's funny, and silly! -Zoë") : formInput.setCustomValidity('')
+      formInput.validity.valueMissing ? formInput.setCustomValidity("You can't countdown from this! That's funny, and silly! -Zoë") : formInput.setCustomValidity('')
 
       formInput.addEventListener('input', function(event) {
-        this.validity.valueMissing ? this.setCustomValidity("You can't countdown from nothing! That's funny, and silly! -Zoë") : this.setCustomValidity('')
+        if (this.validity.badInput) {
+          this.setCustomValidity("You wanna what?")
+        } else if (this.validity.valueMissing) {
+          this.setCustomValidity("You can't countdown from nothing! That's funny, and silly! -Zoë")
+        } else {
+          this.setCustomValidity('')
+        }
       })
     }
 
@@ -35,7 +41,7 @@ class CountdownForm extends React.Component{
         return (
           <div ref={node => this.node = node}>
             <form ref="form" onSubmit={this.onSubmit} className="countdown-form">
-              <input type="number" min="1" max="360000" ref="seconds" placeholder="Enter time in 1 to 360000 seconds" required="required"/>
+              <input pattern="^[0-9]*$" type="number" min="1" max="360000" ref="seconds" placeholder="Enter time in 1 to 360000 seconds" required="required"/>
               <button className="button expanded">Start</button>
             </form>
           </div>
